@@ -1,32 +1,35 @@
-class vector
-{
-    constructor(x,y,z)
-    {
-        this.x =x;  
-        this.y =y;  
-        this.z =z;  
+class vector {
+    constructor(a){
+        this.a=a;
     }
-    add(v2)
-    {
-        return [this.x+v2.x,this.y+v2.y,this.z+v2.z];//相加
+    add(v){
+        var r=[];
+        var x=this;
+        for(var i=0;i<x.a.length;++i)r[i]=x.a[i]+v.a[i];
+        return new vector(r);
     }
-    sub(v2)
-    {
-        return [this.x-v2.x,this.y-v2.y,this.z-v2.z];//相減
+    sub(v){
+        var r=[];
+        var x=this;
+        for(var i=0;i<x.a.length;++i)r[i]=x.a[i]-v.a[i];
+        return new vector(r);
     }
-    dot(v2)
-    {
-        return[this.x*v2.x+this.y*v2.y+this.z*v2.z]//內積公式(x1*x2+y1*y2)
-    }
-    neg()
-    {
-        return[0-this.x,0-this.y,0-this.z]  //負向量
+    dot(v){
+        var miku=0;
+        for(var i=0;i<x.a.length;++i)miku+=x.a[i]*v.a[i];
+        return miku;
+    }neg(){
+        var r=[];
+        var x=this;
+        for(var i=0;i<x.a.length;++i)r[i]=-1*x.a[i];
+        return new vector(r);
     }
 }
-var v1 = new vector(1,2,3);
-var v2 = new vector (4,5,6,);
-console.log("\nv1 + v2 = %s",v1.add(v2));//顯示加法結果
-console.log("\nv1 - v2 = %s",v1.sub(v2));//顯示減法結果
-console.log("\nv1 ‧  v2 = %s",v1.dot(v2));//顯示內積結果
-console.log("\nv1' = %s\n",v1.neg());//顯示取負向量結果
-module.exports=vector;
+var x=new vector([1,2,3]);
+var nx = x.neg()
+var b = x.add(nx)
+var t = x.dot(x)
+var y=new vector([4,5,6]);
+console.log(nx);
+console.log(b);
+console.log(t);
