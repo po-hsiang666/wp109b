@@ -33,3 +33,4 @@ var y=new vector([4,5,6]);
 console.log(nx);
 console.log(b);
 console.log(t);
+
